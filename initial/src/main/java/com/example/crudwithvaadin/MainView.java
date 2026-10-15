@@ -9,6 +9,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 import org.springframework.util.StringUtils;
+import com.vaadin.flow.component.html.H1;
 
 @Route
 public class MainView extends VerticalLayout {
@@ -32,13 +33,13 @@ public class MainView extends VerticalLayout {
 
 		// build layout
 		HorizontalLayout actions = new HorizontalLayout(filter, addNewBtn);
-		add(actions, grid, editor);
+		add(new H1("Customer Management"), actions, grid, editor);
 
 		grid.setHeight("300px");
 		grid.setColumns("id", "firstName", "lastName");
 		grid.getColumnByKey("id").setWidth("50px").setFlexGrow(0);
 
-		filter.setPlaceholder("Filter by last name");
+		filter.setPlaceholder("Search by last name");
 
 		// Hook logic to components
 
